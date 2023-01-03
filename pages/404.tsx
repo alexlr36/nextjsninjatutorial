@@ -1,0 +1,26 @@
+import Link from 'next/link'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+const NotFound = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        // set redirect after 3 seconds
+        setTimeout(() => {
+            // -1 for back, 1 for forward
+            router.push('/');
+            //console.log("use effect rannn");
+        }, 3000);
+    }, [])
+
+    return (
+        <div className='not-found'>
+            <h1>Oooops...</h1>
+            <h2>That page cannot be found.</h2>
+            <p>Go back to the <Link href="/">Homepage</Link></p>
+        </div>
+    );
+}
+
+export default NotFound;
